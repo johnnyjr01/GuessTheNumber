@@ -7,10 +7,68 @@ public class Main {
         System.out.println("Welcome to the Number Guessing Game!\n" +
                 "I'm thinking of a number between 1 and 100.\n");
         System.out.println("Please select the difficulty level");
-        System.out.println("1 - Easy (20 tries");
-        System.out.println("2 - Medium (15 tries)");
-        System.out.println("3 - Hard (10 tries)");
-        System.out.println("4 - Super Hard (5 tries)");
+        System.out.println("1 - Easy (10 chances)");
+        System.out.println("2 - Medium (5 chances)");
+        System.out.println("3 - Hard (3 chances)");
+
+        System.out.print("Enter your choice: ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println("Great! You've selected the Easy difficulty level.\nLet's start the game!");
+                int randomNumber = (int) (Math.random() * 100);
+                int attempts = 0;
+                for (int i = 10; i > 0; i--) {
+                    attempts++;
+                    System.out.print("Enter your guess: ");
+                    int guess = scanner.nextInt();
+                    if (guess > randomNumber) {
+                        System.out.println("Incorrect! The number is less than " + guess);
+                    } else if (guess < randomNumber) {
+                        System.out.println("Incorrect! The number is greater than " + guess);
+                    } else {
+                        System.out.println("Congratulations! You guessed the right number in " + attempts + " attempts.");
+                        break;
+                    }
+                }
+                System.out.println("You've run out of attempts!\nThe correct number was " + randomNumber);
+            case 2:
+                System.out.println("Great! You've selected the Medium difficulty level.\nLet's start the game!");
+                randomNumber = (int) (Math.random() * 100);
+                attempts = 0;
+                for (int i = 5; i > 0; i--) {
+                    attempts++;
+                    System.out.print("Enter your guess: ");
+                    int guess = scanner.nextInt();
+                    if (guess > randomNumber) {
+                        System.out.println("Incorrect! The number is less than " + guess);
+                    } else if (guess < randomNumber) {
+                        System.out.println("Incorrect! The number is greater than " + guess);
+                    } else {
+                        System.out.println("Congratulations! You guessed the right number in " + attempts + " attempts.");
+                    }
+                }
+                System.out.println("You've run out of attempts!\nThe correct number was " + randomNumber);
+            case 3:
+                System.out.println("Great! You've selected the Hard difficulty level.\nLet's start the game!");
+                randomNumber = (int) (Math.random() * 100) + 1;
+                attempts = 0;
+                for (int i = 3; i > 0; i--) {
+                    attempts++;
+                    System.out.print("Enter your guess: ");
+                    int guess = scanner.nextInt();
+                    if (guess > randomNumber) {
+                        System.out.println("Incorrect! The number is less than " + guess);
+                    } else if (guess < randomNumber) {
+                        System.out.println("Incorrect! The number is greater than " + guess);
+                    } else {
+                        System.out.println("Congratulations! You guessed the right number in " + attempts + " attempts.");
+                    }
+                }
+                System.out.println("You've run out of attempts!\nThe correct number was " + randomNumber);
+        }
+
 
 
 
